@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package name="helloworldEnhanced" displayName="Hello World Package Enhanced" version="1.0.0">
+	<transformers>
+		<transformer
+			name="Primary"
+			isPrimary="True"
+			programName="Rscript"
+			programArguments="model.R">
+			<datafeeds>
+
+				<!--Run Control-->
+				<datafeed name="RunControl" displayName="Run Control" dataScope="Scenario">
+					<datasheets>
+						<datasheet name="RunControl" displayName="Run Control" isSingleRow="True">
+							<columns>
+								<column name="RunControlID" dataType="Integer" isPrimary="True"/>
+								<column name="ScenarioID" dataType="Integer"/>
+								<column
+									name="MinimumTimestep"
+									displayName="Minimum Timestep"
+									dataType="Integer"
+									defaultValue="0"
+									validationType="WholeNumber"
+									validationCondition="GreaterEqual"
+									formula1="0"/>
+								<column
+									name="MaximumTimestep"
+									displayName="Maximum Timestep"
+									dataType="Integer"
+									defaultValue="10"
+									validationType="WholeNumber"
+									validationCondition="GreaterEqual"
+									formula1="0"/>
+							</columns>
+						</datasheet>
+					</datasheets>
+				</datafeed>
+
+				<!--Model Inputs-->
+				<datafeed name="InputDatafeed" displayName="Inputs" dataScope="Scenario">
+					<datasheets>
+						<datasheet name="InputDatasheet">
+							<columns>
+								<column name="InputDatasheetID" dataType="Integer" isPrimary="True"/>
+								<column name="ScenarioID" dataType="Integer"/>
+								<column name="Timestep" dataType="Integer" isOptional="True"/>
+								<column name="x" dataType="Double" displayName="Value for x"/>
+								<column name="a" dataType="Integer" displayName="Value for a"/>
+							</columns>
+						</datasheet>
+					</datasheets>
+				</datafeed>
+
+				<!--Model Output-->
+				<datafeed 
+					name="OutputDatafeed" 
+					displayName="Outputs" 
+					dataScope="Scenario" 
+					isOutput="True">
+					<datasheets>
+						<datasheet name="OutputDatasheet">
+							<columns>
+								<column name="ScenarioID" dataType="Integer"/>
+								<column name="Timestep" dataType="Integer" displayName="Timestep"/>
+								<column name="y" dataType="Double" displayName="Value for y"/>
+							</columns>
+						</datasheet>
+					</datasheets>
+				</datafeed>
+
+			</datafeeds>
+		</transformer>
+	</transformers>
+	<layouts>
+
+		<!--Library Datafeeds Layout-->
+		<layout name="coreforms_LibraryDatafeeds">
+			<item name="core_Rconfig"/>
+		</layout>
+
+		<!--Scenario Datafeeds Layout-->
+		<layout name="coreforms_ScenarioDatafeeds">
+			<item name="RunControl"/>
+			<item name="InputDatafeed"/>
+			<item name="OutputDatafeed"/>
+		</layout>
+
+	</layouts>
+</package>

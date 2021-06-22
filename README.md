@@ -1,0 +1,3 @@
+# helloworldEnhanced
+
+The Hello World Enhanced Package is intended as an example of how to add more advanced features to a simple [SyncroSim]( https://syncrosim.com/ ) package.  Instructions on how to develop the base Hello World package from scratch are posted in the SyncroSim documentation on [creating a package](http://docs.syncrosim.com/how_to_guides/package_create_bundle.html). Instructions on how to enhance this base Hello World package are posted in the SyncroSim documentation on [enhancing a package](http://docs.syncrosim.com/how_to_guides/package_create_timesteps.html).
