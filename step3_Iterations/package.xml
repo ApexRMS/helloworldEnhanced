@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package name="helloworldEnhanced" displayName="Hello World Package Enhanced" version="1.0.0">
 	<transformers>
 
@@ -24,6 +24,23 @@
 								<column name="RunControlID" dataType="Integer" isPrimary="True"/>
 								<column name="ScenarioID" dataType="Integer"/>
 								<column
+									name="MinimumIteration"
+									displayName="Minimum Iteration"
+									dataType="Integer"
+									defaultValue="1"
+									validationType="WholeNumber"
+									validationCondition="GreaterEqual"
+									formula1="1"
+									isVisible="False"/>
+								<column
+									name="MaximumIteration"
+									displayName="Number of Iterations"
+									dataType="Integer"
+									defaultValue="5"
+									validationType="WholeNumber"
+									validationCondition="GreaterEqual"
+									formula1="1"/>
+								<column
 									name="MinimumTimestep"
 									displayName="Minimum Timestep"
 									dataType="Integer"
@@ -47,12 +64,16 @@
 				<!--Model Inputs-->
 				<datafeed name="InputDatafeed" displayName="Inputs" dataScope="Scenario">
 					<datasheets>
-						<datasheet name="InputDatasheet" isSingleRow="True">
+						<datasheet name="InputDatasheet">
 							<columns>
 								<column name="InputDatasheetID" dataType="Integer" isPrimary="True"/>
 								<column name="ScenarioID" dataType="Integer"/>
-								<column name="m" dataType="Double" displayName="Value for x"/>
-								<column name="b" dataType="Integer" displayName="Value for a"/>
+								<column name="mMean" dataType="Double" displayName="Slope Distribution Mean"/>
+								<column 
+									name="mSD" 
+									dataType="Double" 
+									displayName="Slope Distribution Standard Deviation"/>
+								<column name="b" dataType="Integer" displayName="Value for b"/>
 							</columns>
 						</datasheet>
 					</datasheets>
@@ -65,8 +86,8 @@
 							<columns>
 								<column name="OutputDatafeedID" dataType="Integer" isPrimary="True"/>
 								<column name="ScenarioID" dataType="Integer"/>
-								<column name="Iteration" dataType="Integer" isOptional="True"/>
-								<column name="Timestep" dataType="Integer"/>
+								<column name="Iteration" dataType="Integer"/>
+								<column name="Timestep" dataType="Integer" displayName="Timestep"/>
 								<column name="y" dataType="Double" displayName="Value for y"/>
 							</columns>
 						</datasheet>

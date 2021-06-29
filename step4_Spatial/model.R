@@ -12,18 +12,31 @@ myInputDataframe <- datasheet(myScenario,
                               name = "helloworldEnhanced_InputDatasheet")
 
 # Extract model inputs from complete input dataframe
-m <- myInputDataframe$m
+mMean <- myInputDataframe$mMean
+mSD <- myInputDataframe$mSD
 b <- myInputDataframe$b
-
-# Do calculations
-y <- m * Timesteps + b
 
 # Setup empty R dataframe ready to accept output in SyncroSim datasheet format
 myOutputDataframe <- datasheet(myScenario,
                                name = "helloworldEnhanced_OutputDatasheet")
 
-# Copy output into this R dataframe
-myOutputDataframe <- data.frame(Timestep = Timesteps, y = y)
+# For loop through iterations
+for (iter in runSettings$MinimumIteration:runSettings$MaximumIteration) {
+  
+  # Extract a slope value from normal distribution
+  m <- rnorm(n = 1, mean = mMean, sd = mSD)
+  
+  # Do calculations
+  y <- m * Timesteps + b
+  
+  # Store the relevant outputs in a temporary dataframe
+  tempDataframe <- data.frame(Timestep = Timesteps, 
+                              Iteration = iter,
+                              y = y)
+  
+  # Copy output into this R dataframe
+  myOutputDataframe <- addRow(myOutputDataframe, tempDataframe)
+}
 
 # Save this R dataframe back to the SyncroSim library's output datasheet
 saveDatasheet(myScenario,

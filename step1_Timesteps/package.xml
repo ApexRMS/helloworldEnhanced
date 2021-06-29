@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package name="helloworldEnhanced" displayName="Hello World Package Enhanced" version="1.0.0">
+<package name="helloworldEnhanced" displayName="Hello World Package Enhanced" version="1.0.1">
 	<transformers>
 		<transformer
 			name="Primary"
@@ -39,13 +39,12 @@
 				<!--Model Inputs-->
 				<datafeed name="InputDatafeed" displayName="Inputs" dataScope="Scenario">
 					<datasheets>
-						<datasheet name="InputDatasheet">
+						<datasheet name="InputDatasheet" isSingleRow="True">
 							<columns>
 								<column name="InputDatasheetID" dataType="Integer" isPrimary="True"/>
 								<column name="ScenarioID" dataType="Integer"/>
-								<column name="Timestep" dataType="Integer" isOptional="True"/>
-								<column name="x" dataType="Double" displayName="Value for x"/>
-								<column name="a" dataType="Integer" displayName="Value for a"/>
+								<column name="m" dataType="Double" displayName="Value for m"/>
+								<column name="b" dataType="Integer" displayName="Value for b"/>
 							</columns>
 						</datasheet>
 					</datasheets>
