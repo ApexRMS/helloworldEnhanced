@@ -89,7 +89,7 @@
 					<datasheets>
 						<datasheet name="OutputDatasheet">
 							<columns>
-								<column name="OutputDatafeedID" dataType="Integer" isPrimary="True"/>
+								<column name="OutputDatasheetID" dataType="Integer" isPrimary="True"/>
 								<column name="ScenarioID" dataType="Integer"/>
 								<column name="Iteration" dataType="Integer"/>
 								<column name="Timestep" dataType="Integer" displayName="Timestep"/>
