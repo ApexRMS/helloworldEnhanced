@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package name="helloworldEnhanced" displayName="Hello World Package Enhanced" version="1.0.0">
+	<transformers>
+
+		<!--Primary Transformer-->
+		<transformer
+			name="Primary"
+			isPrimary="True"
+			programName="Rscript"
+			programArguments="model.R">
+
+			<!--Chart Transformer-->
+			<include>
+				<transformer name="corestime_Runtime"/>
+			</include>
+
+			<datafeeds>
+
+				<!--Run Control-->
+				<datafeed name="RunControl" displayName="Run Control" dataScope="Scenario">
+					<datasheets>
+						<datasheet name="RunControl" displayName="Run Control" isSingleRow="True">
+							<columns>
+								<column name="RunControlID" dataType="Integer" isPrimary="True"/>
+								<column name="ScenarioID" dataType="Integer"/>
+								<column
+									name="MinimumIteration"
+									displayName="Minimum Iteration"
+									dataType="Integer"
+									defaultValue="1"
+									validationType="WholeNumber"
+									validationCondition="GreaterEqual"
+									formula1="1"
+									isVisible="False"/>
+								<column
+									name="MaximumIteration"
+									displayName="Number of Iterations"
+									dataType="Integer"
+									defaultValue="5"
+									validationType="WholeNumber"
+									validationCondition="GreaterEqual"
+									formula1="1"/>
+								<column
+									name="MinimumTimestep"
+									displayName="Minimum Timestep"
+									dataType="Integer"
+									defaultValue="0"
+									validationType="WholeNumber"
+									validationCondition="GreaterEqual"
+									formula1="0"/>
+								<column
+									name="MaximumTimestep"
+									displayName="Maximum Timestep"
+									dataType="Integer"
+									defaultValue="10"
+									validationType="WholeNumber"
+									validationCondition="GreaterEqual"
+									formula1="0"/>
+							</columns>
+						</datasheet>
+					</datasheets>
+				</datafeed>
+
+				<!--Model Inputs-->
+				<datafeed name="InputDatafeed" displayName="Inputs" dataScope="Scenario">
+					<datasheets>
+						<datasheet name="InputDatasheet" isSingleRow="True">
+							<columns>
+								<column name="InputDatasheetID" dataType="Integer" isPrimary="True"/>
+								<column name="ScenarioID" dataType="Integer"/>
+								<column 
+									name="bMean" 
+									dataType="Double" 
+									displayName="Intercept Distribution Mean"/>
+								<column 
+									name="bSD" 
+									dataType="Double" 
+									displayName="Intercept Distribution Standard Deviation"/>
+								<column 
+									name="RasterFileName"
+									displayName="Raster File Name"
+									dataType="String"
+									isExternalFile="True"
+									isRaster="True"/>
+							</columns>
+						</datasheet>
+					</datasheets>
+				</datafeed>
+
+				<!--Model Output-->
+				<datafeed name="OutputDatafeed" displayName="Outputs" dataScope="Scenario">
+					<datasheets>
+						<datasheet name="OutputDatasheet">
+							<columns>
+								<column name="OutputDatasheetID" dataType="Integer" isPrimary="True"/>
+								<column name="ScenarioID" dataType="Integer"/>
+								<column name="Iteration" dataType="Integer"/>
+								<column name="Timestep" dataType="Integer" displayName="Timestep"/>
+								<column
+									name="RasterFileName"
+									displayName="Raster File Name"
+									dataType="String"
+									isExternalFile="True"
+									isRaster="True"
+									bandColumn="Band"/>
+								<column 
+									name="Band"
+									displayName="Band"
+									dataType="Integer"
+									allowDbNull="True"
+									isOptional="True"/>
+							</columns>
+						</datasheet>
+					</datasheets>
+				</datafeed>
+
+			</datafeeds>
+		</transformer>
+		
+		<!--Export Transformer-->
+		<transformer
+			name="OutputExportMap" 
+			displayName="Output Raster Map"
+		    className="SyncroSim.StochasticTime.Forms.StochasticTimeExportTransformer" 
+			classAssembly="SyncroSim.StochasticTime.Forms"
+		    dataSheet="OutputDatasheet" 
+			column="RasterFileName" 
+			isFolderExport="True" >
+		</transformer>
+		
+	</transformers>
+	<layouts>
+
+		<!--Results Transformer Layout-->
+		<layout name="coreforms_ResultTransformers">
+			<item name="corestime_ChartTransformer"/>
+			<item name="corestime_MapTransformer"/>
+			<group name="Export">
+				<item name="OutputExportMap"/>
+			</group>
+		</layout>
+
+		<!--Library Datafeeds Layout-->
+		<layout name="coreforms_LibraryDatafeeds">
+			<item name="core_Rconfig"/>
+		</layout>
+
+		<!--Scenario Datafeeds Layout-->
+		<layout name="coreforms_ScenarioDatafeeds">
+			<item name="RunControl"/>
+			<item name="InputDatafeed"/>
+			<item name="OutputDatafeed"/>
+		</layout>
+
+		<layout name="corestimeforms_Maps" configurationSheet="RunControl">
+			<item 
+				name="RasterMap" 
+				displayName="Output Raster Map" 
+				dataSheet="OutputDatasheet" 
+				column="RasterFileName"/>
+		</layout>
+
+	</layouts>
+</package>
