@@ -16,13 +16,13 @@ myInputDataframe <- datasheet(myScenario,
                               name = "helloworldEnhanced_InputDatasheet")
 
 # Extract model inputs from complete input dataframe
-bMean <- myInputDataframe$bMean
-bSD <- myInputDataframe$bSD
+mMean <- myInputDataframe$mMean
+mSD <- myInputDataframe$mSD
 
 # Load raster input 
 rasterMap <- datasheetRaster(myScenario,
-                           datasheet="helloworldEnhanced_InputDatasheet",
-                           column="RasterFileName")
+                             datasheet="helloworldEnhanced_InputDatasheet",
+                             column="InterceptRasterFileName")
 
 # Setup empty R dataframe ready to accept output in SyncroSim datasheet format
 myOutputDataframe <- datasheet(myScenario,
@@ -32,22 +32,26 @@ myOutputDataframe <- datasheet(myScenario,
 for (iter in runSettings$MinimumIteration:runSettings$MaximumIteration) {
   
   # Extract a slope value from normal distribution
-  b <- rnorm(n = 1, mean = bMean, sd = bSD)
+  m <- rnorm(n = 1, mean = mMean, sd = mSD)
   
-  newRasterMaps <- calc(rasterMap, function(m) m * Timesteps + b,
+  newRasterMaps <- calc(rasterMap, function(b) m * Timesteps + b,
                         forceapply=TRUE)
+  
+  # The y value will be the sum of all the cells in each raster
+  y <- cellStats(newRasterMaps, stat = 'sum')
   
   # Add the new raster for this timestep/iteration to the output
   newRasterNames <- file.path(paste0(tempFolderPath, 
                                      "/rasterMap_iter", iter, "_ts",
                                      Timesteps, ".tif"))
-  writeRaster(newRasterMaps, filename=newRasterNames,
-              format="GTiff", overwrite=TRUE, bylayer=TRUE)
+  writeRaster(newRasterMaps, filename = newRasterNames,
+              format = "GTiff", overwrite = TRUE, bylayer = TRUE)
   
   # Store the relevant outputs in a temporary dataframe
   tempDataframe <- data.frame(Iteration = iter,
-                              Timestep = Timesteps, 
-                              RasterFileName = newRasterNames)
+                              Timestep = Timesteps,
+                              y = y,
+                              InterceptRasterFileName = newRasterNames)
   
   # Copy output into this R dataframe
   myOutputDataframe <- addRow(myOutputDataframe, tempDataframe)

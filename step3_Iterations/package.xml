@@ -64,7 +64,7 @@
 				<!--Model Inputs-->
 				<datafeed name="InputDatafeed" displayName="Inputs" dataScope="Scenario">
 					<datasheets>
-						<datasheet name="InputDatasheet">
+						<datasheet name="InputDatasheet" isSingleRow="True">
 							<columns>
 								<column name="InputDatasheetID" dataType="Integer" isPrimary="True"/>
 								<column name="ScenarioID" dataType="Integer"/>
@@ -84,7 +84,7 @@
 					<datasheets>
 						<datasheet name="OutputDatasheet">
 							<columns>
-								<column name="OutputDatafeedID" dataType="Integer" isPrimary="True"/>
+								<column name="OutputDatasheetID" dataType="Integer" isPrimary="True"/>
 								<column name="ScenarioID" dataType="Integer"/>
 								<column name="Iteration" dataType="Integer"/>
 								<column name="Timestep" dataType="Integer" displayName="Timestep"/>
