@@ -3,58 +3,54 @@ library(raster)          # Load raster package
 myScenario <- scenario()  # Get the SyncroSim scenario that is currently running
 
 # Create temporary folder for storing rasters
-tempFolderPath <- envTempFolder("OutputExportMap")
+tempFolderPath <- envTempFolder("OutputExportMap2")
 
 # Load RunControl datasheet to be able to set timesteps
 runSettings <- datasheet(myScenario, name = "helloworldEnhanced_RunControl")
 
-# Set timesteps - can set to different frequencies if desired
-Timesteps <- seq(runSettings$MinimumTimestep, runSettings$MaximumTimestep)
+# Get sequence of all timesteps for all iterations
+Timesteps <- rep(seq(runSettings$MinimumTimestep,
+                     runSettings$MaximumTimestep),
+                 runSettings$MaximumIteration)
+
+# Get sequence of iterations
+Iterations <- rep(1:runSettings$MaximumIteration,
+                  each = length(Timesteps) / runSettings$MaximumIteration)
 
 # Load raster input 
-rasterMap <- datasheetRaster(myScenario,
-                             datasheet="helloworldEnhanced_IntermediateDatasheet",
-                             column="RasterFileName")
+rasterMap <- datasheetRaster(
+  myScenario,
+  datasheet = "helloworldEnhanced_IntermediateDatasheet",
+  column = "InterceptRasterFileName"
+)
 
 # Setup empty R dataframe ready to accept output in SyncroSim datasheet format
 myOutputDataframe <- datasheet(myScenario,
                                name = "helloworldEnhanced_OutputDatasheet")
 
-# For loop through iterations
-for (iter in runSettings$MinimumIteration:runSettings$MaximumIteration) {
-  
-  # Classify values in raster to output
-  classes <- c(-Inf, -10, "Very Low",
-               -10, 0, "Low",
-               0, 10, "Medium",
-               10, 20, "High",
-               20, Inf, "Extreme")
-  classes_mat <- matrix(classes, ncol=3, byrow=T)
-  newRasterMap <- reclassify(rasterMap, classes_mat)
-  
-  # Extract a slope value from normal distribution
-  b <- rnorm(n = 1, mean = bMean, sd = bSD)
-  
-  newRasterMaps <- calc(rasterMap, function(m) m * Timesteps + b,
-                        forceapply=TRUE)
-  
-  # Add the new raster for this timestep/iteration to the output
-  newRasterNames <- file.path(paste0(tempFolderPath, 
-                                     "/rasterMap_iter", iter, "_ts",
-                                     Timesteps, ".tif"))
-  writeRaster(newRasterMaps, filename=newRasterNames,
-              format="GTiff", overwrite=TRUE, bylayer=TRUE)
-  
-  # Store the relevant outputs in a temporary dataframe
-  tempDataframe <- data.frame(Iteration = iter,
-                              Timestep = Timesteps, 
-                              RasterFileName = newRasterNames)
-  
-  # Copy output into this R dataframe
-  myOutputDataframe <- addRow(myOutputDataframe, tempDataframe)
-}
+
+# Classify values in raster to output
+classes <- c(-Inf, -10, 1,
+             -10, 0, 2,
+             0, 10, 3,
+             10, 20, 4,
+             20, Inf, 5)
+classes_mat <- matrix(classes, ncol = 3, byrow = T)
+newRasterMaps <- reclassify(rasterMap, classes_mat)
+
+# Add the new raster for this timestep/iteration to the output
+newRasterNames <- file.path(paste0(tempFolderPath, 
+                                   "/rasterMap_iter", Iterations, "_ts",
+                                   Timesteps, ".tif"))
+writeRaster(newRasterMaps, filename = newRasterNames,
+            format = "GTiff", overwrite = TRUE, bylayer = TRUE)
+
+# Copy the relevant outputs into a dataframe
+myOutputDataframe <- data.frame(Iteration = Iterations,
+                                Timestep = Timesteps, 
+                                InterceptRasterFileName = newRasterNames)
 
 # Save this R dataframe back to the SyncroSim library's output datasheet
 saveDatasheet(myScenario,
-              data=myOutputDataframe,
-              name="helloworldEnhanced_IntermediateDatasheet")
+              data = myOutputDataframe,
+              name = "helloworldEnhanced_OutputDatasheet")

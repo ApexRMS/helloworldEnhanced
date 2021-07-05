@@ -34,6 +34,7 @@ for (iter in runSettings$MinimumIteration:runSettings$MaximumIteration) {
   # Extract a slope value from normal distribution
   m <- rnorm(n = 1, mean = mMean, sd = mSD)
   
+  # Use each cell in the raster as the intercept in linear equation
   newRasterMaps <- calc(rasterMap, function(b) m * Timesteps + b,
                         forceapply=TRUE)
   
