@@ -12,6 +12,8 @@
 			<!--Chart Transformer-->
 			<include>
 				<transformer name="corestime_Runtime"/>
+				<transformer name="firstModel"/>
+				<transformer name="secondModel"/>
 			</include>
 
 			<datafeeds>
@@ -61,7 +63,7 @@
 					</datasheets>
 				</datafeed>
 
-				<!--Model Inputs-->
+				<!--First Model Inputs-->
 				<datafeed name="InputDatafeed" displayName="Inputs" dataScope="Scenario">
 					<datasheets>
 						<datasheet name="InputDatasheet" isSingleRow="True">
@@ -73,18 +75,34 @@
 									name="mSD"
 									dataType="Double"
 									displayName="Slope Distribution Standard Deviation"/>
-								<column
-									name="InterceptRasterFileName"
-									displayName="Intercept Raster File Name"
-									dataType="String"
-									isExternalFile="True"
-									isRaster="True"/>
+								<column name="b" dataType="Integer" displayName="Value for b"/>
 							</columns>
 						</datasheet>
 					</datasheets>
 				</datafeed>
 
-				<!--Model Output-->
+				<!--First Model Outputs / Second Model Inputs-->
+				<datafeed
+					name="IntermediateDatafeed"
+				    displayName="Intermediate Outputs"
+				    dataScope="Scenario">
+					<datasheets>
+						<datasheet name="IntermediateDatasheet">
+							<columns>
+								<column
+									name="IntermediateDatasheetID"
+							        dataType="Integer"
+									isPrimary="True"/>
+								<column name="ScenarioID" dataType="Integer"/>
+								<column name="Iteration" dataType="Integer"/>
+								<column name="Timestep" dataType="Integer" displayName="Timestep"/>
+								<column name="y" dataType="Double" displayName="Value for y"/>
+							</columns>
+						</datasheet>
+					</datasheets>
+				</datafeed>
+
+				<!--Second Model Outputs-->
 				<datafeed name="OutputDatafeed" displayName="Outputs" dataScope="Scenario">
 					<datasheets>
 						<datasheet name="OutputDatasheet">
@@ -93,20 +111,7 @@
 								<column name="ScenarioID" dataType="Integer"/>
 								<column name="Iteration" dataType="Integer"/>
 								<column name="Timestep" dataType="Integer" displayName="Timestep"/>
-								<column name="y" dataType="Double" displayName="Value for y"/>
-								<column
-									name="InterceptRasterFileName"
-									displayName="Raster File Name"
-									dataType="String"
-									isExternalFile="True"
-									isRaster="True"
-									bandColumn="Band"/>
-								<column
-									name="Band"
-									displayName="Band"
-									dataType="Integer"
-									allowDbNull="True"
-									isOptional="True"/>
+								<column name="yCum" dataType="Double" displayName="Cumulative y"/>
 							</columns>
 						</datasheet>
 					</datasheets>
@@ -115,15 +120,34 @@
 			</datafeeds>
 		</transformer>
 
-		<!--Export Transformer-->
+		<!--First Transformer-->
 		<transformer
-			name="OutputExportMap"
-			displayName="Output Raster Map"
-		    className="SyncroSim.StochasticTime.Forms.StochasticTimeExportTransformer"
-			classAssembly="SyncroSim.StochasticTime.Forms"
-		    dataSheet="OutputDatasheet"
-			column="InterceptRasterFileName"
-			isFolderExport="True" >
+			name="firstModel"
+			displayName="First Model"
+			isRunnable="True"
+			programName="Rscript"
+			programArguments="model.R"
+			configurationSheet="RunControl">
+			<pipeline>
+				<datafeed name="RunControl" type="Input"/>
+				<datafeed name="InputDatafeed" type="Input"/>
+				<datafeed name="IntermediateDatafeed" type="Output"/>
+			</pipeline>
+		</transformer>
+
+		<!--Second Transformer-->
+		<transformer
+			name="secondModel"
+			displayName="Second Model"
+			isRunnable="True"
+			programName="Rscript"
+			programArguments="model2.R"
+			configurationSheet="RunControl">
+			<pipeline>
+				<datafeed name="RunControl" type="Input"/>
+				<datafeed name="IntermediateDatafeed" type="Input"/>
+				<datafeed name="OutputDatafeed" type="Output"/>
+			</pipeline>
 		</transformer>
 
 	</transformers>
@@ -132,10 +156,6 @@
 		<!--Results Transformer Layout-->
 		<layout name="coreforms_ResultTransformers">
 			<item name="corestime_ChartTransformer"/>
-			<item name="corestime_MapTransformer"/>
-			<group name="Export">
-				<item name="OutputExportMap"/>
-			</group>
 		</layout>
 
 		<!--Library Datafeeds Layout-->
@@ -145,23 +165,23 @@
 
 		<!--Scenario Datafeeds Layout-->
 		<layout name="coreforms_ScenarioDatafeeds">
-			<item name="RunControl"/>
+			<group name="RunControl" displayName="Run Control">
+				<item name="RunControl" displayName="General"/>
+				<item name="core_Pipeline"/>
+			</group>
 			<item name="InputDatafeed"/>
+			<item name="IntermediateDatafeed"/>
 			<item name="OutputDatafeed"/>
 		</layout>
 
 		<!--Charts Layout-->
 		<layout name="corestimeforms_Charts" configurationSheet="RunControl">
-			<item name="y" displayName="y" dataSheet="OutputDatasheet" column="y"/>
-		</layout>
-
-		<!--Maps Layout-->
-		<layout name="corestimeforms_Maps" configurationSheet="RunControl">
+			<item name="y" displayName="y" dataSheet="IntermediateDatasheet" column="y"/>
 			<item
-				name="RasterMap"
-				displayName="Output Raster Map"
+				name="yCum"
+				displayName="Cumulative y"
 				dataSheet="OutputDatasheet"
-				column="InterceptRasterFileName"/>
+				column="yCum"/>
 		</layout>
 
 	</layouts>

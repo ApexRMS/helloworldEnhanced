@@ -9,7 +9,7 @@ tempFolderPath <- envTempFolder("OutputExportMap")
 runSettings <- datasheet(myScenario, name = "helloworldEnhanced_RunControl")
 
 # Set timesteps - can set to different frequencies if desired
-Timesteps <- seq(runSettings$MinimumTimestep, runSettings$MaximumTimestep)
+timesteps <- seq(runSettings$MinimumTimestep, runSettings$MaximumTimestep)
 
 # Load scenario's input datasheet from SyncroSim library into R dataframe
 myInputDataframe <- datasheet(myScenario,
@@ -21,12 +21,14 @@ mSD <- myInputDataframe$mSD
 
 # Load raster input 
 rasterMap <- datasheetRaster(myScenario,
-                             datasheet="helloworldEnhanced_InputDatasheet",
-                             column="InterceptRasterFileName")
+                             datasheet = "helloworldEnhanced_InputDatasheet",
+                             column = "InterceptRasterFileName")
 
 # Setup empty R dataframe ready to accept output in SyncroSim datasheet format
-myOutputDataframe <- datasheet(myScenario,
-                               name = "helloworldEnhanced_OutputDatasheet")
+myOutputDataframe <- datasheet(
+  myScenario,
+  name = "helloworldEnhanced_IntermediateDatasheet"
+)
 
 # For loop through iterations
 for (iter in runSettings$MinimumIteration:runSettings$MaximumIteration) {
@@ -34,8 +36,9 @@ for (iter in runSettings$MinimumIteration:runSettings$MaximumIteration) {
   # Extract a slope value from normal distribution
   m <- rnorm(n = 1, mean = mMean, sd = mSD)
   
-  newRasterMaps <- calc(rasterMap, function(b) m * Timesteps + b,
-                        forceapply=TRUE)
+  # Use each cell in the raster as the intercept in linear equation
+  newRasterMaps <- calc(rasterMap, function(b) m * timesteps + b,
+                        forceapply = TRUE)
   
   # The y value will be the sum of all the cells in each raster
   y <- cellStats(newRasterMaps, stat = 'sum')
@@ -59,5 +62,5 @@ for (iter in runSettings$MinimumIteration:runSettings$MaximumIteration) {
 
 # Save this R dataframe back to the SyncroSim library's output datasheet
 saveDatasheet(myScenario,
-              data=myOutputDataframe,
-              name="helloworldEnhanced_OutputDatasheet")
+              data = myOutputDataframe,
+              name = "helloworldEnhanced_IntermediateDatasheet")
