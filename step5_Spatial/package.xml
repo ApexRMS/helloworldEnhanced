@@ -77,7 +77,7 @@
 									displayName="Slope Distribution Standard Deviation"/>
 								<column
 									name="InterceptRasterFileName"
-									displayName="Raster File Name"
+									displayName="Intercept Raster File Name"
 									dataType="String"
 									isExternalFile="True"
 									isRaster="True"/>
@@ -104,7 +104,7 @@
 								<column name="y" dataType="Double" displayName="Value for y"/>
 								<column
 									name="InterceptRasterFileName"
-									displayName="Raster File Name"
+									displayName="Intercept Raster File Name"
 									dataType="String"
 									isExternalFile="True"
 									isRaster="True"

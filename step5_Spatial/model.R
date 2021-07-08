@@ -46,13 +46,13 @@ for (iter in runSettings$MinimumIteration:runSettings$MaximumIteration) {
   # Add the new raster for this timestep/iteration to the output
   newRasterNames <- file.path(paste0(tempFolderPath, 
                                      "/rasterMap_iter", iter, "_ts",
-                                     Timesteps, ".tif"))
+                                     timesteps, ".tif"))
   writeRaster(newRasterMaps, filename = newRasterNames,
               format = "GTiff", overwrite = TRUE, bylayer = TRUE)
   
   # Store the relevant outputs in a temporary dataframe
   tempDataframe <- data.frame(Iteration = iter,
-                              Timestep = Timesteps,
+                              Timestep = timesteps,
                               y = y,
                               InterceptRasterFileName = newRasterNames)
   

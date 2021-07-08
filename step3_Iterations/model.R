@@ -5,7 +5,7 @@ myScenario <- scenario()  # Get the SyncroSim scenario that is currently running
 runSettings <- datasheet(myScenario, name = "helloworldEnhanced_RunControl")
 
 # Set timesteps - can set to different frequencies if desired
-Timesteps <- seq(runSettings$MinimumTimestep, runSettings$MaximumTimestep)
+timesteps <- seq(runSettings$MinimumTimestep, runSettings$MaximumTimestep)
 
 # Load scenario's input datasheet from SyncroSim library into R dataframe
 myInputDataframe <- datasheet(myScenario,
@@ -27,10 +27,10 @@ for (iter in runSettings$MinimumIteration:runSettings$MaximumIteration) {
   m <- rnorm(n = 1, mean = mMean, sd = mSD)
   
   # Do calculations
-  y <- m * Timesteps + b
+  y <- m * timesteps + b
   
   # Store the relevant outputs in a temporary dataframe
-  tempDataframe <- data.frame(Timestep = Timesteps, 
+  tempDataframe <- data.frame(Timestep = timesteps, 
                               Iteration = iter,
                               y = y)
   

@@ -51,8 +51,8 @@
 							<columns>
 								<column name="InputDatasheetID" dataType="Integer" isPrimary="True"/>
 								<column name="ScenarioID" dataType="Integer"/>
-								<column name="m" dataType="Double" displayName="Value for x"/>
-								<column name="b" dataType="Integer" displayName="Value for a"/>
+								<column name="m" dataType="Double" displayName="Value for m"/>
+								<column name="b" dataType="Integer" displayName="Value for b"/>
 							</columns>
 						</datasheet>
 					</datasheets>
@@ -63,7 +63,7 @@
 					<datasheets>
 						<datasheet name="OutputDatasheet">
 							<columns>
-								<column name="OutputDatafeedID" dataType="Integer" isPrimary="True"/>
+								<column name="OutputDatasheetID" dataType="Integer" isPrimary="True"/>
 								<column name="ScenarioID" dataType="Integer"/>
 								<column name="Iteration" dataType="Integer" isOptional="True"/>
 								<column name="Timestep" dataType="Integer"/>

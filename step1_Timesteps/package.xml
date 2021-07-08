@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package name="helloworldEnhanced" displayName="Hello World Package Enhanced" version="1.0.1">
+<package name="helloworldEnhanced" displayName="Hello World Package Enhanced" version="1.0.0">
 	<transformers>
 		<transformer
 			name="Primary"
@@ -55,7 +55,7 @@
 					<datasheets>
 						<datasheet name="OutputDatasheet">
 							<columns>
-								<column name="OutputDatafeedID" dataType="Integer" isPrimary="True"/>
+								<column name="OutputDatasheetID" dataType="Integer" isPrimary="True"/>
 								<column name="ScenarioID" dataType="Integer"/>
 								<column name="Timestep" dataType="Integer" displayName="Timestep"/>
 								<column name="y" dataType="Double" displayName="Value for y"/>
