@@ -13,7 +13,7 @@ permalink: /
 ### The *Hello World Enhanced* package is intended as an example of how to enhance a simple [SyncroSim](https://syncrosim.com/) package. Instructions on how to build off the original [*Hello World* package](https://apexrms.github.io/helloworld/) to create the *Hello World Enhanced* package are posted in the SyncroSim documentation on [enhancing a package](https://docs.syncrosim.com/how_to_guides/package_enhance_overview.html).
 
 
-The *Hello World Enhanced* package was designed as an example of how to add more complex features to a [SyncroSim](https://syncrosim.com/) package. The package is featured in the [enhancing a package](https://docs.syncrosim.com/how_to_guides/package_enhance_overview.html) tutorial, which covers the steps needed to [add timesteps](https://docs.syncrosim.com/how_to_guides/package_create_timesteps.html), [display charts](https://docs.syncrosim.com/how_to_guides/package_create_charts.html), [represent uncertainty](https://docs.syncrosim.com/how_to_guides/package_create_iterations.html),[link models](https://docs.syncrosim.com/how_to_guides/package_create_pipelines.html), and [integrate spatial data](https://docs.syncrosim.com/how_to_guides/package_create_spatial.html) in your package.
+The *Hello World Enhanced* package was designed as an example of how to add more complex features to a [SyncroSim](https://syncrosim.com/) package. The package is featured in the [enhancing a package](https://docs.syncrosim.com/how_to_guides/package_enhance_overview.html) tutorial, which covers the steps needed to [add timesteps](https://docs.syncrosim.com/how_to_guides/package_create_timesteps.html), [display charts](https://docs.syncrosim.com/how_to_guides/package_create_charts.html), [represent uncertainty](https://docs.syncrosim.com/how_to_guides/package_create_iterations.html), [link models](https://docs.syncrosim.com/how_to_guides/package_create_pipelines.html), and [integrate spatial data](https://docs.syncrosim.com/how_to_guides/package_create_spatial.html) in your package.
 
 
 ## Requirements
@@ -37,6 +37,7 @@ For more information on **Hello World Enhanced**, including a Quickstart Tutoria
 
 Access tutorial at
 [https://docs.syncrosim.com/how_to_guides/package_enhance_overview.html](https://docs.syncrosim.com/how_to_guides/package_enhance_overview.html)
+<br>
 Browse source code at
 [http://github.com/ApexRMS/helloworldEnhanced/](http://github.com/ApexRMS/helloworldEnhanced/)
 <br>
