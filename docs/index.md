@@ -9,7 +9,7 @@ permalink: /
 <img align="right" style="padding: 13px" width="180" src="assets/images/logo/helloworldEnhanced-sticker.png">
 [![GitHub release](https://img.shields.io/github/v/release/ApexRMS/helloworldEnhanced.svg?style=for-the-badge&color=d68a06)](https://GitHub.com/ApexRMS/helloworldEnhanced/releases/)    <a href="https://github.com/ApexRMS/helloworldEnhanced"><img align="middle" style="padding: 1px" width="30" src="assets/images/logo/github-trans2.png">
 <br>
-## An enhanced example of a <a href="https://syncrosim.com/" target="_blank">SyncroSim</a>
+## An enhanced example of a <a href="https://syncrosim.com/" target="_blank">SyncroSim</a> package
 ### The *helloworldEnhanced* package is intended as an example of how to enhance a simple <a href="https://syncrosim.com/" target="_blank">SyncroSim</a> package. Instructions on how to build off the original <a href="https://apexrms.github.io/helloworld/" target="_blank">*helloworld* package</a> to create the *helloworldEnhanced* package are posted in the SyncroSim documentation on <a href="https://docs.syncrosim.com/how_to_guides/package_enhance_overview.html" target="_blank">enhancing a package</a>.
 
 
