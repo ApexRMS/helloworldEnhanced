@@ -209,7 +209,7 @@
 				name="RasterMap"
 				displayName="Output Raster Map"
 				dataSheet="IntermediateDatasheet"
-				column="InterceptRasterFile"/>
+				column="OutputRasterFile"/>
 		</layout>
 
 	</layouts>
