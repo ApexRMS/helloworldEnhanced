@@ -9,7 +9,6 @@ x64/
 *.dll
 *.pdb
 *.exe
-*.ssim
 *.db
 *.opendb
 .metadata
