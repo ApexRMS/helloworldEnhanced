@@ -76,8 +76,8 @@
 									dataType="Double"
 									displayName="Slope Distribution Standard Deviation"/>
 								<column
-									name="InterceptRasterFileName"
-									displayName="Intercept Raster File Name"
+									name="InterceptRasterFile"
+									displayName="Intercept Raster File"
 									dataType="String"
 									isExternalFile="True"
 									isRaster="True"/>
@@ -103,8 +103,8 @@
 								<column name="Timestep" dataType="Integer" displayName="Timestep"/>
 								<column name="y" dataType="Double" displayName="Value for y"/>
 								<column
-									name="InterceptRasterFileName"
-									displayName="Intercept Raster File Name"
+									name="OutputRasterFile"
+									displayName="Output Raster File"
 									dataType="String"
 									isExternalFile="True"
 									isRaster="True"
@@ -209,7 +209,7 @@
 				name="RasterMap"
 				displayName="Output Raster Map"
 				dataSheet="IntermediateDatasheet"
-				column="InterceptRasterFileName"/>
+				column="InterceptRasterFile"/>
 		</layout>
 
 	</layouts>

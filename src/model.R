@@ -22,7 +22,7 @@ mSD <- myInputDataframe$mSD
 # Load raster input 
 rasterMap <- datasheetRaster(myScenario,
                              datasheet = "helloworldEnhanced_InputDatasheet",
-                             column = "InterceptRasterFileName")
+                             column = "InterceptRasterFile")
 
 # Setup empty R dataframe ready to accept output in SyncroSim datasheet format
 myOutputDataframe <- datasheet(
@@ -54,7 +54,7 @@ for (iter in runSettings$MinimumIteration:runSettings$MaximumIteration) {
   tempDataframe <- data.frame(Iteration = iter,
                               Timestep = timesteps,
                               y = y,
-                              InterceptRasterFileName = newRasterNames)
+                              OutputRasterFile = newRasterNames)
   
   # Copy output into this R dataframe
   myOutputDataframe <- addRow(myOutputDataframe, tempDataframe)

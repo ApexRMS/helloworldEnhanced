@@ -23,6 +23,8 @@ title: Getting started
 <br>
 3. First, check your executable location by clicking on the **helloworldEnhanced** Library in the <a href="https://docs.syncrosim.com/how_to_guides/library_overview.html" target="_blank">Library Explorer</a>, and then selecting **Library Properties** from the **File** menu. Select the **R Configuration** tab to check and/or set the location of your R program executable.
 <br>
+<img align="middle" style="padding: 13px" width="300" src="assets/images/package_R_configuration.PNG">
+<br>
 <br>
 4. To set the number of time steps and iterations, right-click on the auto-generated empty **New Scenario** in the <a href="https://docs.syncrosim.com/how_to_guides/library_overview.html" target="_blank">Library Explorer</a> and select **Properties**. Then select the **Run Control - General** tab. Fill in the **Number of Iterations**, the **Minimum Timestep**, and the **Maximum Timestep**.
 <br>
