@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package name="helloworldEnhanced" displayName="Hello World Package Enhanced" version="1.0.0">
+<package name="helloworldEnhanced" displayName="Example demonstrating how to enhance a package" version="1.0.0" url="https://apexrms.github.io/helloworldEnhanced/">
 	<transformers>
 
 		<!--Primary Transformer-->
