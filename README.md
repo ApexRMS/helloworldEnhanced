@@ -1,8 +1,8 @@
 # helloworldEnhanced
 
-The Hello World Enhanced Package is intended as an example of how to add more advanced features to a simple [SyncroSim]( https://syncrosim.com/ ) package.  Instructions on how to develop the base Hello World package from scratch are posted in the SyncroSim documentation on [creating a package](http://docs.syncrosim.com/how_to_guides/package_create_bundle.html). Instructions on how to enhance this base Hello World package are posted in the SyncroSim documentation on [enhancing a package](http://docs.syncrosim.com/how_to_guides/package_create_timesteps.html).
+The helloworldEnhanced Package is intended as an example of how to add more advanced features to a simple [SyncroSim]( https://syncrosim.com/ ) package.  Instructions on how to develop the base Hello World package from scratch are posted in the SyncroSim documentation on [creating a package](http://docs.syncrosim.com/how_to_guides/package_create_bundle.html). Instructions on how to enhance this base Hello World package are posted in the SyncroSim documentation on [enhancing a package](http://docs.syncrosim.com/how_to_guides/package_create_timesteps.html).
 
-This directory contains the code to replicate each step in the [enhancing a package](http://docs.syncrosim.com/how_to_guides/package_create_timesteps.html) tutorial, as well as the bundled *.ssimpkg* files for each step. To install each step of the Hello World Enhanced Package, you can do either of the following:
+This directory contains the code to replicate each step in the [enhancing a package](http://docs.syncrosim.com/how_to_guides/package_create_timesteps.html) tutorial, as well as the bundled *.ssimpkg* files for each step. To install each step of the helloworldEnhanced Package, you can do either of the following:
 
 1. Use the SyncroSim package manager directly to install the .ssimpkg for a specific step.
 
