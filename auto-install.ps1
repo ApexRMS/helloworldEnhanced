@@ -1,6 +1,6 @@
-$PACKAGE_NAME = "helloworldEnhanced"
+$PACKAGE_NAME = "<STEP>"
 $PACKAGE = $PACKAGE_NAME, ".ssimpkg" -join ""
-$STEP = Join-Path "<WORKING FOLDER>" -ChildPath $PACKAGE_NAME | Join-Path -ChildPath "<STEP>"
+$STEP = Join-Path "<WORKING FOLDER>" -ChildPath "helloworldEnhanced" | Join-Path -ChildPath "<STEP>"
 $EXE = "C:\Program Files\SyncroSim\SyncroSim.PackageManager.exe"
 
 & $EXE --uninstall=$PACKAGE_NAME
