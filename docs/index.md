@@ -13,7 +13,7 @@ permalink: /
 ### The *Enhanced Helloworld* packages are intended as examples of how to enhance a simple <a href="https://syncrosim.com/" target="_blank">SyncroSim</a> package. Instructions on how to build off the original <a href="https://apexrms.github.io/helloworld/" target="_blank">*helloworld* package</a> to create the *Enhanced Helloworld* packages are posted in the SyncroSim documentation on <a href="https://docs.syncrosim.com/how_to_guides/package_enhance_overview.html" target="_blank">enhancing a package</a>.
 
 
-The *Enhanced Helloworld* contains the following <a href="https://syncrosim.com/" target="_blank">SyncroSim</a> packages:
+*Enhanced Helloworld* includes the following <a href="https://syncrosim.com/" target="_blank">SyncroSim</a> packages:
 
 * <a href="https://github.com/ApexRMS/helloworldTime" target="_blank">helloworldTime</a>
 * <a href="https://github.com/ApexRMS/helloworldUncertainty" target="_blank">helloworldUncertainty</a>
@@ -25,7 +25,7 @@ The package is featured in the <a href="https://docs.syncrosim.com/how_to_guides
 
 ## Requirements
 
-This package requires SyncroSim <a href="https://syncrosim.com/download/" target="_blank">2.3.2</a>.
+This package requires the <a href="https://syncrosim.com/download/" target="_blank">latest SyncroSim release</a>.
 <br>
 <br>
 ## How to Install

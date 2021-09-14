@@ -3,25 +3,25 @@ layout: default
 title: Getting started
 ---
 
-# Getting started with **helloworldEnhanced**
+# Getting started with **Enhanced Helloworld**
 
 ## Quickstart Tutorial
 
-1. Download and install SyncroSim 2.3.2 or later from <a href="https://syncrosim.com/download/" target="_blank">https://syncrosim.com/download/</a>.
+1. Download and install the latest version of SyncroSim from <a href="https://syncrosim.com/download/" target="_blank">https://syncrosim.com/download/</a>.
 
-2. Install the *helloworldEnhanced* package in the SyncroSim user interface by selecting **File \| Packages \| Install...**
+2. Install the *helloworldSpatial* package in the SyncroSim user interface by selecting **File \| Packages \| Install...**
 <br>
 <br>
 3. If you need to update package versions, in SyncroSim go to **File \| Packages \| Update...**
 <br>
 <br>
-4. Create a new *helloworldEnhanced* Library
+4. Create a new *helloworldSpatial* Library
   * In SyncroSim, select **File \| New Library...**
-  * Select the *helloworldEnhanced* base package and choose the *Empty Library* template.
+  * Select the *helloworldSpatial* base package and choose the *Empty Library* template.
   * Enter a **Filename** (ok to keep the default) and a **Folder** for your new Library, then click **OK**.
 <br>
 <br>
-3. First, check your executable location by clicking on the **helloworldEnhanced** Library in the <a href="https://docs.syncrosim.com/how_to_guides/library_overview.html" target="_blank">Library Explorer</a>, and then selecting **Library Properties** from the **File** menu. Select the **R Configuration** tab to check and/or set the location of your R program executable.
+3. First, check your executable location by clicking on the **helloworldSpatial** Library in the <a href="https://docs.syncrosim.com/how_to_guides/library_overview.html" target="_blank">Library Explorer</a>, and then selecting **Library Properties** from the **File** menu. Select the **R Configuration** tab to check and/or set the location of your R program executable.
 <br>
 <img align="middle" style="padding: 13px" width="300" src="assets/images/package_R_configuration.PNG">
 <br>
@@ -64,4 +64,4 @@ title: Getting started
 <img align="middle" style="padding: 13px" width="300" src="assets/images/package_create_maps_viewer.PNG">
 <br>
 <br>
-For the complete tutorial on how to create the *helloworldEnhanced* Package, see the <a href="https://docs.syncrosim.com/how_to_guides/package_enhance_overview.html" target="_blank">enhancing a package</a> tutorial in the <a href="https://docs.syncrosim.com/" target="_blank">SyncroSim documentation</a>.
+For the complete tutorial on how to create the *Enhanced Helloworld* Packages, see the <a href="https://docs.syncrosim.com/how_to_guides/package_enhance_overview.html" target="_blank">enhancing a package</a> tutorial in the <a href="https://docs.syncrosim.com/" target="_blank">SyncroSim documentation</a>.
