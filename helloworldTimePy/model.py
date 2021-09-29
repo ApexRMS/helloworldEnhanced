@@ -1,14 +1,9 @@
 # Load SyncroSim python package
-import sys
-sys.path.append("C:/gitprojects/pysyncrosim") # this part will be removed once we release
 import pysyncrosim as ps
 
 # Load numpy and pandas
 import numpy as np
 import pandas as pd
-
-# Start progress bar
-ps.progress_bar(report_type="begin", total_steps=1)
 
 # Get the SyncroSim Scenario that is currently running
 myScenario = ps.Scenario()
@@ -36,6 +31,3 @@ my_output_dataframe = pd.DataFrame({"Timestep": timesteps, "y": y})
 # Save the output DataFrame to the Scenario output Datasheet
 myScenario.save_datasheet(name="OutputDatasheet",
                           data=my_output_dataframe)
-
-# End progress bar
-ps.progress_bar(report_type="end")
