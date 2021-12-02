@@ -180,6 +180,7 @@
 		<!--Library Datafeeds Layout-->
 		<layout name="coreforms_LibraryDatafeeds">
 			<item name="core_Pyconfig"/>
+			<item name="core_Condaconfig"/>
 		</layout>
 
 		<!--Scenario Datafeeds Layout-->
