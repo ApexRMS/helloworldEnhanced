@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Home
-description: "Landing page for the Package"
+description: "Examples of an enhanced SyncroSim package"
 permalink: /
 ---
 
