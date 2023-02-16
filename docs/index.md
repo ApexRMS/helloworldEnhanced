@@ -19,6 +19,7 @@ permalink: /
 * <a href="https://github.com/ApexRMS/helloworldUncertainty" target="_blank">helloworldUncertainty</a>
 * <a href="https://github.com/ApexRMS/helloworldPipeline" target="_blank">helloworldPipeline</a>
 * <a href="https://github.com/ApexRMS/helloworldSpatial" target="_blank">helloworldSpatial</a>
+* <a href="https://github.com/ApexRMS/helloworldConda" target="_blank">helloworldConda</a>
 
 The package is featured in the <a href="https://docs.syncrosim.com/how_to_guides/package_enhance_overview.html" target="_blank">enhancing a package</a> tutorial, which covers the steps needed to <a href="https://docs.syncrosim.com/how_to_guides/package_create_timesteps.html" target="_blank">add timesteps</a>, <a href="https://docs.syncrosim.com/how_to_guides/package_create_charts.html" target="_blank">display charts</a>, <a href="https://docs.syncrosim.com/how_to_guides/package_create_iterations.html" target="_blank">represent uncertainty</a>, <a href="https://docs.syncrosim.com/how_to_guides/package_create_pipelines.html" target="_blank">links models</a>, and <a href="https://docs.syncrosim.com/how_to_guides/package_create_spatial.html" target="_blank">itegrate spatial data</a> in your package.
 
@@ -32,7 +33,7 @@ This package requires the <a href="https://syncrosim.com/download/" target="_bla
 
 Open SyncroSim and select **File -> Packages… -> Install…**, then select the **helloworldTime**, **helloworldUncertainty**, **helloworldPipeline**, or **helloworldSpatial** package and click OK.
 
-Alternatively, download the latest release for <a href="https://github.com/ApexRMS/helloworldTime/releases" target="_blank">helloworldTime</a>, <a href="https://github.com/ApexRMS/helloworldUncertainty/releases" target="_blank">helloworldUncertainty</a>, <a href="https://github.com/ApexRMS/helloworldPipeline/releases" target="_blank">helloworldPipeline</a>, or <a href="https://github.com/ApexRMS/helloworldSpatial/releases" target="_blank">helloworldSpatial</a> from GitHub. Open SyncroSim and navigate to packages, then install from file.
+Alternatively, download the latest release for <a href="https://github.com/ApexRMS/helloworldTime/releases" target="_blank">helloworldTime</a>, <a href="https://github.com/ApexRMS/helloworldUncertainty/releases" target="_blank">helloworldUncertainty</a>, <a href="https://github.com/ApexRMS/helloworldPipeline/releases" target="_blank">helloworldPipeline</a>, <a href="https://github.com/ApexRMS/helloworldSpatial/releases" target="_blank">helloworldSpatial</a>, or <a href="https://github.com/ApexRMS/helloworldConda/releases" target="_blank">helloworldConda</a> from GitHub. Open SyncroSim and navigate to packages, then install from file.
 <br>
 <br>
 ## Getting Started
