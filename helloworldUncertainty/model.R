@@ -2,14 +2,15 @@ library(rsyncrosim)      # Load SyncroSim R package
 myScenario <- scenario()  # Get the SyncroSim scenario that is currently running
 
 # Load RunControl datasheet to be able to set timesteps
-runSettings <- datasheet(myScenario, name = "helloworldEnhanced_RunControl")
+runSettings <- datasheet(myScenario, name = "helloworldUncertainty_RunControl",
+                         returnInvisible = TRUE)
 
 # Set timesteps - can set to different frequencies if desired
 timesteps <- seq(runSettings$MinimumTimestep, runSettings$MaximumTimestep)
 
 # Load scenario's input datasheet from SyncroSim library into R dataframe
 myInputDataframe <- datasheet(myScenario,
-                              name = "helloworldEnhanced_InputDatasheet")
+                              name = "helloworldUncertainty_InputDatasheet")
 
 # Extract model inputs from complete input dataframe
 mMean <- myInputDataframe$mMean
@@ -18,7 +19,7 @@ b <- myInputDataframe$b
 
 # Setup empty R dataframe ready to accept output in SyncroSim datasheet format
 myOutputDataframe <- datasheet(myScenario,
-                               name = "helloworldEnhanced_OutputDatasheet")
+                               name = "helloworldUncertainty_OutputDatasheet")
 
 # For loop through iterations
 for (iter in runSettings$MinimumIteration:runSettings$MaximumIteration) {
@@ -41,4 +42,4 @@ for (iter in runSettings$MinimumIteration:runSettings$MaximumIteration) {
 # Save this R dataframe back to the SyncroSim library's output datasheet
 saveDatasheet(myScenario,
               data=myOutputDataframe,
-              name="helloworldEnhanced_OutputDatasheet")
+              name="helloworldUncertainty_OutputDatasheet")
