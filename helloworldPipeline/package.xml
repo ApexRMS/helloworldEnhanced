@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package name="helloworldEnhanced" displayName= "Hello World Package Enhanced" version="2.0.0" url="https://apexrms.github.io/helloworldEnhanced/">
+<package name="helloworldPipeline" displayName= "Hello World Pipeline (R)" description = "Example demonstrating how to use pipelines with an R model" version="2.0.0" url="https://apexrms.github.io/helloworldEnhanced/">
 
 	<!--Scenario Datasheets-->
 
@@ -26,14 +26,14 @@
 	<!--Transformers-->
 
 	<!--First Transformer-->
-	<transformer name="firstModel" displayName="First Model" isRunnable="True" programArguments="model.R">
+	<transformer name="firstModel" displayName="First Model" isRunnable="True" programArguments="model.R" condaEnv="helloworldR.yml" condaEnvVersion="1">
 		<dataSheet name="RunControl" type="Input"/>
 		<dataSheet name="InputDataSheet" type="Input"/>
 		<dataSheet name="IntermediateDataSheet" type="Output"/>
 	</transformer>
 
 	<!--Second Transformer-->
-	<transformer name="secondModel" displayName="Second Model" isRunnable="True" programArguments="model2.R">
+	<transformer name="secondModel" displayName="Second Model" isRunnable="True" programArguments="model2.R" condaEnv="helloworldR.yml" condaEnvVersion = "1">
 		<dataSheet name="RunControl" type="Input"/>
 		<dataSheet name="IntermediateDataSheet" type="Input"/>
 		<dataSheet name="OutputDataSheet" type="Output"/>

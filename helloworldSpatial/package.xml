@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package name="helloworldEnhanced" displayName="Hello World Package Enhanced" version="2.0.0" url="https://apexrms.github.io/helloworldEnhanced/">
+<package name="helloworldSpatial" displayName="Hello World Spatial (R)" description="Example demonstrating how to use spatial data with an R model" version="2.0.0" url="https://apexrms.github.io/helloworldEnhanced/">
 
 	<!--Scenario Datasheets-->
 
@@ -28,14 +28,14 @@
 	<!--Transformers-->
 
 	<!--First Transformer-->
-	<transformer name="firstModel" displayName="First Model" programArguments="model.R">
+	<transformer name="firstModel" displayName="First Model" programArguments="model.R" condaEnv="helloworldR.yml" condaEnvVersion="1">
 		<dataSheet name="RunControl" type="Input"/>
 		<dataSheet name="InputDatasheet" type="Input"/>
 		<dataSheet name="IntermediateDatasheet" type="Output"/>
 	</transformer>
 
 	<!--Second Transformer-->
-	<transformer name="secondModel" displayName="Second Model" programArguments="model2.R">
+	<transformer name="secondModel" displayName="Second Model" programArguments="model2.R" condaEnv="helloworldR.yml" condaEnvVersion="1">
 		<dataSheet name="RunControl" type="Input"/>
 		<dataSheet name="IntermediateDatasheet" type="Input"/>
 		<dataSheet name="OutputDatasheet" type="Output"/>
