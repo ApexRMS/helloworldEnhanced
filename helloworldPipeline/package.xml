@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package name="helloworldPipeline" displayName= "Hello World Pipeline (R)" description = "Example demonstrating how to use pipelines with an R model" version="2.0.0" url="https://apexrms.github.io/helloworldEnhanced/">
+<package name="helloworldPipeline" displayName= "Hello World Pipeline (R)" description = "Example demonstrating how to use pipelines with an R model" version="2.1.0" url="https://apexrms.github.io/helloworldEnhanced/">
 
 	<!--Scenario Datasheets-->
 
