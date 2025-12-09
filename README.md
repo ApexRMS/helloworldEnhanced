@@ -31,7 +31,7 @@ cd helloworldEnhanced/helloworldTime
 * Install using the package manager `--finstall` command (Note: include the entire path to the package manager executable)
 
 ```
-SyncroSim.PackageManger.exe --finstall=helloworldEnhanced.ssimpkg
+SyncroSim.PackageManager.exe --finstall=helloworldEnhanced.ssimpkg
 ```
 
 * Check if installation succeeded
