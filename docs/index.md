@@ -55,8 +55,5 @@ Report a bug at
 <br>
 ## Developers
 
-Katie Birchard (Author, maintainer)
+[ApexRMS](https://apexrms.com/){:target="_blank"} (Author, maintainer)
 <br>
-Leonardo Frid (Author) <a href="https://orcid.org/0000-0002-5489-2337"><img align="middle" style="padding: 0.5px" width="17" src="assets/images/ORCID.png"></a>
-<br>
-Colin Daniel (Author)
